@@ -1,0 +1,9 @@
+[
+  {
+    "id": "wallet_001",
+    "organizationId": "org_sandbox_001",
+    "ownerType": "user",
+    "ownerId": "user_001",
+    "status": "active"
+  }
+]

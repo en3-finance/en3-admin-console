@@ -1,0 +1,16 @@
+[
+  {
+    "id": "policy_001",
+    "organizationId": "org_sandbox_001",
+    "name": "High value stablecoin approval",
+    "status": "active",
+    "rules": [
+      {
+        "type": "transaction_amount",
+        "asset": "USDC",
+        "threshold": "10000.00",
+        "action": "require_approval"
+      }
+    ]
+  }
+]

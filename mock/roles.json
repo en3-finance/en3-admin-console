@@ -1,0 +1,7 @@
+[
+  {
+    "id": "role_operations_admin",
+    "name": "Operations Admin",
+    "permissions": ["wallets.read", "transactions.review", "approvals.decide", "audit.read"]
+  }
+]
