@@ -1,0 +1,8 @@
+[
+  {
+    "id": "approval_001",
+    "transactionId": "txn_001",
+    "status": "pending",
+    "reason": "Amount exceeds sandbox approval threshold."
+  }
+]

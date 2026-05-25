@@ -1,0 +1,12 @@
+[
+  {
+    "id": "audit_001",
+    "organizationId": "org_sandbox_001",
+    "actorType": "admin",
+    "actorId": "admin_001",
+    "action": "transaction.approved",
+    "resourceType": "transaction",
+    "resourceId": "txn_001",
+    "createdAt": "2026-05-25T12:15:00Z"
+  }
+]
