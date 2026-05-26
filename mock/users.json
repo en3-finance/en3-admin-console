@@ -2,7 +2,37 @@
   {
     "id": "admin_001",
     "organizationId": "org_sandbox_001",
-    "role": "operations_admin",
-    "status": "active"
+    "name": "Maya Operations",
+    "email": "maya.operations@example.invalid",
+    "roleId": "role_operations_admin",
+    "status": "active",
+    "lastActiveAt": "2026-05-26T08:15:00Z"
+  },
+  {
+    "id": "user_002",
+    "organizationId": "org_sandbox_001",
+    "name": "Omar Compliance",
+    "email": "omar.compliance@example.invalid",
+    "roleId": "role_compliance_reviewer",
+    "status": "active",
+    "lastActiveAt": "2026-05-25T15:42:00Z"
+  },
+  {
+    "id": "user_003",
+    "organizationId": "org_sandbox_002",
+    "name": "Leila Treasury",
+    "email": "leila.treasury@example.invalid",
+    "roleId": "role_treasury_operator",
+    "status": "invited",
+    "lastActiveAt": null
+  },
+  {
+    "id": "user_004",
+    "organizationId": "org_sandbox_003",
+    "name": "Samir Auditor",
+    "email": "samir.auditor@example.invalid",
+    "roleId": "role_readonly_auditor",
+    "status": "active",
+    "lastActiveAt": "2026-05-24T11:05:00Z"
   }
 ]

@@ -2,6 +2,49 @@
   {
     "id": "role_operations_admin",
     "name": "Operations Admin",
-    "permissions": ["wallets.read", "transactions.review", "approvals.decide", "audit.read"]
+    "description": "Can review wallets, transactions, approvals, and audit context in the reference console.",
+    "scope": "organization",
+    "permissions": [
+      "dashboard.read",
+      "wallets.read",
+      "transactions.review",
+      "approvals.decide",
+      "audit.read",
+      "webhooks.read"
+    ]
+  },
+  {
+    "id": "role_compliance_reviewer",
+    "name": "Compliance Reviewer",
+    "description": "Can inspect mock risk reviews, policy matches, and audit evidence.",
+    "scope": "risk-review",
+    "permissions": [
+      "risk.read",
+      "policies.read",
+      "approvals.read",
+      "audit.read"
+    ]
+  },
+  {
+    "id": "role_treasury_operator",
+    "name": "Treasury Operator",
+    "description": "Can inspect treasury and system wallet posture in mock form.",
+    "scope": "treasury",
+    "permissions": [
+      "treasury.read",
+      "wallets.read",
+      "simulation.run"
+    ]
+  },
+  {
+    "id": "role_readonly_auditor",
+    "name": "Read-only Auditor",
+    "description": "Can inspect audit trails and control-plane configuration without decisions.",
+    "scope": "audit",
+    "permissions": [
+      "dashboard.read",
+      "audit.read",
+      "webhooks.read"
+    ]
   }
 ]

@@ -1,0 +1,15 @@
+{
+  "name": "en3-admin-console",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "apps/admin-console"
+  ],
+  "scripts": {
+    "dev": "npm --workspace apps/admin-console run dev",
+    "build": "npm --workspace apps/admin-console run build",
+    "test": "npm --workspace apps/admin-console run test",
+    "preview": "npm --workspace apps/admin-console run preview"
+  }
+}

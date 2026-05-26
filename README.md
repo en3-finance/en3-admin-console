@@ -1,46 +1,76 @@
 # En3 Admin Console
 
-Status: public reference / sandbox artifact. This repository is intended to document and demonstrate the En3 integration surface. Production cryptography, signing orchestration, policy enforcement, risk logic, ledger infrastructure, treasury execution, and customer deployments are private by design.
+Public reference admin/control-plane demo for institutional Wallet-as-a-Service
+operations.
 
-## What This Repo Is
+This repository demonstrates En3 Wallet Control Plane concepts for banks,
+fintechs, payment providers, remittance companies, and regulated digital-asset
+payment products. It is a static demo backed by local mock JSON only.
 
-`en3-admin-console` is a reference admin console for the En3 Wallet Control Plane: organizations, RBAC, policies, approvals, risk review, and audit logs.
+## What This Repo Demonstrates
 
-## Who It Is For
+- Dashboard posture across organizations, wallets, approvals, risk, audit, and
+  webhook examples.
+- Organization, user, and Roles / RBAC reference tables.
+- Wallet Registry and Treasury / System Wallet views.
+- Mock policy detail and mock pending approval workflow.
+- Transaction Simulation with no execution, signing, settlement, or ledger
+  effect.
+- Risk Review interfaces for compliance-readiness concepts without vendor
+  integration.
+- Audit Log timeline and Webhook subscription examples.
 
-This repo is for bank operations, fintech operations, platform engineering, product, and diligence teams reviewing the control-plane model.
+## Public Boundary
 
-## What It Demonstrates
+This repo is not a production control plane. It does not include production
+policy enforcement, cryptography, signing orchestration, custody, ledger
+infrastructure, treasury execution, reconciliation, sweeping, risk scoring,
+sanctions/KYT vendor integrations, webhook delivery, customer deployments,
+private endpoints, or credentials.
 
-- Organizations.
-- Users.
-- IAM/RBAC.
-- Wallet Registry.
-- Treasury/System Wallets.
-- Policies.
-- Pending Approvals.
-- Transaction Simulation.
-- Risk Review.
-- Audit Log.
-- Webhooks.
+All data is mock/reference data under `mock/`.
 
-## Intentionally Out Of Scope
+## Run Locally
 
-This repo uses mock data only. It does not contain production policy enforcement, production signing, ledger infrastructure, risk logic, treasury execution, real compliance vendor integrations, customer deployments, private endpoints, or production credentials.
+```bash
+npm install
+npm run dev
+```
+
+Open the local URL printed by Vite.
+
+## Validate
+
+```bash
+npm test
+npm run build
+```
+
+## Screenshot Guidance
+
+Start the dev server, then capture:
+
+1. Dashboard at desktop width.
+2. Policies with policy detail visible.
+3. Pending Approvals with transaction detail visible.
+4. Transaction Simulation after running the mock simulation.
+5. Audit Log at mobile width.
+
+Screenshots should keep visible mock/reference labels in frame.
 
 ## Reference Docs
 
 - [Control-plane overview](docs/control-plane-overview.md)
 - [Policy examples](docs/policy-examples.md)
 - [Audit-log model](docs/audit-log-model.md)
-- [Static demo notes](apps/admin-console/README.md)
+- [Demo script](docs/demo-script.md)
+- [Static app README](apps/admin-console/README.md)
 
 ## Related En3 Repositories
 
-- `en3-docs`
-- `en3-api-spec`
-- `en3-wallet-sdk`
-- `en3-reference-bank`
-- `en3-web-wallet`
-- `en3-mobile-wallet`
-- `en3-chain-integrations`
+- [en3-reference-bank](https://github.com/en3-finance/en3-reference-bank)
+- [en3-api-spec](https://github.com/en3-finance/en3-api-spec)
+
+Additional public reference repositories may include SDKs, wallet reference apps,
+and chain-integration examples when available. Production systems remain private
+by design.

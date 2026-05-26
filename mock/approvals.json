@@ -1,8 +1,68 @@
 [
   {
     "id": "approval_001",
+    "organizationId": "org_sandbox_001",
     "transactionId": "txn_001",
+    "policyId": "policy_001",
+    "riskReviewId": "risk_001",
     "status": "pending",
-    "reason": "Amount exceeds sandbox approval threshold."
+    "reason": "Amount exceeds sandbox approval threshold.",
+    "requestedBy": "admin_001",
+    "createdAt": "2026-05-25T12:05:00Z",
+    "transaction": {
+      "id": "txn_001",
+      "sourceWalletId": "wallet_002",
+      "destination": "mock beneficiary wallet ending 42AB",
+      "asset": "USDC",
+      "amount": "25000.00",
+      "network": "Sandbox EVM",
+      "policyResult": "approval_required",
+      "riskResult": "review_required",
+      "disclaimer": "Reference simulation only. No transfer, signing, settlement, ledger entry, or webhook delivery occurs."
+    }
+  },
+  {
+    "id": "approval_002",
+    "organizationId": "org_sandbox_002",
+    "transactionId": "txn_002",
+    "policyId": "policy_003",
+    "riskReviewId": "risk_002",
+    "status": "pending",
+    "reason": "Mock risk signal requires manual review.",
+    "requestedBy": "system_reference",
+    "createdAt": "2026-05-25T13:35:00Z",
+    "transaction": {
+      "id": "txn_002",
+      "sourceWalletId": "wallet_003",
+      "destination": "mock payout corridor recipient",
+      "asset": "USDT",
+      "amount": "4800.00",
+      "network": "Sandbox Tron-like rail",
+      "policyResult": "review_required",
+      "riskResult": "review_required",
+      "disclaimer": "Reference simulation only. No external payment or risk vendor call is made."
+    }
+  },
+  {
+    "id": "approval_003",
+    "organizationId": "org_sandbox_001",
+    "transactionId": "txn_003",
+    "policyId": "policy_002",
+    "riskReviewId": "risk_003",
+    "status": "rejected",
+    "reason": "Source wallet is frozen in the mock registry.",
+    "requestedBy": "user_002",
+    "createdAt": "2026-05-24T16:18:00Z",
+    "transaction": {
+      "id": "txn_003",
+      "sourceWalletId": "wallet_005",
+      "destination": "mock external transfer destination",
+      "asset": "USDC",
+      "amount": "490.00",
+      "network": "Sandbox EVM",
+      "policyResult": "blocked",
+      "riskResult": "clear",
+      "disclaimer": "Reference simulation only. The public repo does not enforce wallet freezes."
+    }
   }
 ]

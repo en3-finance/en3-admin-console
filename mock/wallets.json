@@ -2,8 +2,61 @@
   {
     "id": "wallet_001",
     "organizationId": "org_sandbox_001",
+    "label": "Reference user wallet",
     "ownerType": "user",
     "ownerId": "user_001",
-    "status": "active"
+    "asset": "USDC",
+    "network": "Sandbox EVM",
+    "balance": "1250.00",
+    "status": "active",
+    "custodyMode": "reference delegated wallet"
+  },
+  {
+    "id": "wallet_002",
+    "organizationId": "org_sandbox_001",
+    "label": "Treasury omnibus wallet",
+    "ownerType": "treasury",
+    "ownerId": "treasury_ops",
+    "asset": "USDC",
+    "network": "Sandbox EVM",
+    "balance": "250000.00",
+    "status": "active",
+    "custodyMode": "bank-hosted key share reference"
+  },
+  {
+    "id": "wallet_003",
+    "organizationId": "org_sandbox_002",
+    "label": "Remittance settlement wallet",
+    "ownerType": "settlement",
+    "ownerId": "settlement_ops",
+    "asset": "USDT",
+    "network": "Sandbox Tron-like rail",
+    "balance": "87000.00",
+    "status": "review",
+    "custodyMode": "SaaS reference custody"
+  },
+  {
+    "id": "wallet_004",
+    "organizationId": "org_sandbox_003",
+    "label": "Fee collection system wallet",
+    "ownerType": "system",
+    "ownerId": "system_fee_collector",
+    "asset": "USDC",
+    "network": "Sandbox EVM",
+    "balance": "7400.25",
+    "status": "active",
+    "custodyMode": "BYO custody/HSM reference"
+  },
+  {
+    "id": "wallet_005",
+    "organizationId": "org_sandbox_001",
+    "label": "Frozen user wallet example",
+    "ownerType": "user",
+    "ownerId": "user_005",
+    "asset": "USDC",
+    "network": "Sandbox EVM",
+    "balance": "490.00",
+    "status": "frozen",
+    "custodyMode": "reference delegated wallet"
   }
 ]

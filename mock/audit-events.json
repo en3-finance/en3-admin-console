@@ -7,6 +7,51 @@
     "action": "transaction.approved",
     "resourceType": "transaction",
     "resourceId": "txn_001",
+    "summary": "Mock operations admin approved a high-value transfer in the reference workflow.",
     "createdAt": "2026-05-25T12:15:00Z"
+  },
+  {
+    "id": "audit_002",
+    "organizationId": "org_sandbox_001",
+    "actorType": "system",
+    "actorId": "system_reference",
+    "action": "policy.matched",
+    "resourceType": "policy",
+    "resourceId": "policy_001",
+    "summary": "Reference policy matched because transfer amount exceeded the sandbox threshold.",
+    "createdAt": "2026-05-25T12:04:40Z"
+  },
+  {
+    "id": "audit_003",
+    "organizationId": "org_sandbox_002",
+    "actorType": "system",
+    "actorId": "system_reference",
+    "action": "risk.review_required",
+    "resourceType": "risk_review",
+    "resourceId": "risk_002",
+    "summary": "Mock risk review escalated a payout corridor transaction for compliance review.",
+    "createdAt": "2026-05-25T13:34:12Z"
+  },
+  {
+    "id": "audit_004",
+    "organizationId": "org_sandbox_003",
+    "actorType": "admin",
+    "actorId": "user_004",
+    "action": "webhook.paused",
+    "resourceType": "webhook",
+    "resourceId": "webhook_003",
+    "summary": "Read-only auditor inspected a paused webhook subscription in mock form.",
+    "createdAt": "2026-05-24T09:21:00Z"
+  },
+  {
+    "id": "audit_005",
+    "organizationId": "org_sandbox_001",
+    "actorType": "admin",
+    "actorId": "user_002",
+    "action": "transaction.rejected",
+    "resourceType": "transaction",
+    "resourceId": "txn_003",
+    "summary": "Mock transfer was rejected because the source wallet was frozen.",
+    "createdAt": "2026-05-24T16:24:00Z"
   }
 ]
