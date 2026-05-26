@@ -35,6 +35,10 @@ This repo uses mock data only. It does not contain production policy enforcement
 - [Audit-log model](docs/audit-log-model.md)
 - [Static demo notes](apps/admin-console/README.md)
 
+## Static Demo
+
+Open `apps/admin-console/index.html` from a local static server to view a lightweight control-plane reference surface. It uses the same mock organization, wallet, policy, approval, risk review, and audit language as `en3-api-spec`.
+
 ## Related En3 Repositories
 
 - `en3-docs`
