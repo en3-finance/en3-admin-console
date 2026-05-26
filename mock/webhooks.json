@@ -1,29 +1,29 @@
 [
   {
     "id": "webhook_001",
-    "organizationId": "org_sandbox_001",
+    "organizationId": "org_sandbank_001",
     "label": "Operations event sink",
     "eventTypes": ["approval.created", "approval.decided", "risk.review_required"],
     "target": "https://example.invalid/mock-ops-events",
     "status": "active",
     "lastDeliveryStatus": "success",
-    "secretStatus": "mock_rotation_current"
+    "secretStatus": "mock_current"
   },
   {
     "id": "webhook_002",
-    "organizationId": "org_sandbox_002",
+    "organizationId": "org_sandbank_002",
     "label": "Compliance review queue",
     "eventTypes": ["risk.escalated", "policy.matched"],
     "target": "https://example.invalid/mock-compliance-events",
     "status": "active",
     "lastDeliveryStatus": "retrying",
-    "secretStatus": "mock_rotation_due"
+    "secretStatus": "mock_due"
   },
   {
     "id": "webhook_003",
-    "organizationId": "org_sandbox_003",
-    "label": "Treasury reporting mirror",
-    "eventTypes": ["wallet.balance_changed", "treasury.sweep_reference"],
+    "organizationId": "org_sandbank_003",
+    "label": "Reconciliation reporting mirror",
+    "eventTypes": ["wallet.status_changed", "reconciliation.exception_opened"],
     "target": "redacted mock endpoint",
     "status": "paused",
     "lastDeliveryStatus": "none",

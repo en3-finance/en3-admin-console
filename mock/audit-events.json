@@ -1,7 +1,7 @@
 [
   {
     "id": "audit_001",
-    "organizationId": "org_sandbox_001",
+    "organizationId": "org_sandbank_001",
     "actorType": "admin",
     "actorId": "admin_001",
     "action": "transaction.approved",
@@ -12,7 +12,7 @@
   },
   {
     "id": "audit_002",
-    "organizationId": "org_sandbox_001",
+    "organizationId": "org_sandbank_001",
     "actorType": "system",
     "actorId": "system_reference",
     "action": "policy.matched",
@@ -23,7 +23,7 @@
   },
   {
     "id": "audit_003",
-    "organizationId": "org_sandbox_002",
+    "organizationId": "org_sandbank_002",
     "actorType": "system",
     "actorId": "system_reference",
     "action": "risk.review_required",
@@ -34,7 +34,7 @@
   },
   {
     "id": "audit_004",
-    "organizationId": "org_sandbox_003",
+    "organizationId": "org_sandbank_003",
     "actorType": "admin",
     "actorId": "user_004",
     "action": "webhook.paused",
@@ -45,7 +45,7 @@
   },
   {
     "id": "audit_005",
-    "organizationId": "org_sandbox_001",
+    "organizationId": "org_sandbank_001",
     "actorType": "admin",
     "actorId": "user_002",
     "action": "transaction.rejected",
@@ -53,5 +53,16 @@
     "resourceId": "txn_003",
     "summary": "Mock transfer was rejected because the source wallet was frozen.",
     "createdAt": "2026-05-24T16:24:00Z"
+  },
+  {
+    "id": "audit_006",
+    "organizationId": "org_sandbank_002",
+    "actorType": "system",
+    "actorId": "system_reference",
+    "action": "reconciliation.exception_opened",
+    "resourceType": "reconciliation",
+    "resourceId": "recon_002",
+    "summary": "Synthetic reconciliation exception opened for operator review.",
+    "createdAt": "2026-05-25T18:02:00Z"
   }
 ]

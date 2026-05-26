@@ -7,8 +7,8 @@ describe('admin console shell', () => {
   it('renders the dashboard with mock-only posture', () => {
     render(<App />);
 
-    expect(screen.getByRole('heading', { name: /wallet control plane/i })).toBeInTheDocument();
-    expect(screen.getByText(/mock operational posture/i)).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: /operations control plane/i })).toBeInTheDocument();
+    expect(screen.getAllByText(/sandbank mock posture/i).length).toBeGreaterThan(0);
     expect(screen.getAllByText(/public reference/i).length).toBeGreaterThan(0);
   });
 
@@ -18,7 +18,7 @@ describe('admin console shell', () => {
 
     await user.click(screen.getByRole('button', { name: /organizations/i }));
     expect(screen.getByRole('heading', { name: /organizations/i })).toBeInTheDocument();
-    expect(screen.getByText(/reference bank/i)).toBeInTheDocument();
+    expect(screen.getAllByText(/sandbank/i).length).toBeGreaterThan(0);
 
     await user.click(screen.getByRole('button', { name: /roles \/ rbac/i }));
     expect(screen.getByRole('heading', { name: /roles \/ rbac/i })).toBeInTheDocument();
@@ -26,6 +26,6 @@ describe('admin console shell', () => {
 
     await user.click(screen.getByRole('button', { name: /wallet registry/i }));
     expect(screen.getByRole('heading', { name: /wallet registry/i })).toBeInTheDocument();
-    expect(screen.getByText(/reference user wallet/i)).toBeInTheDocument();
+    expect(screen.getByText(/sandbank user wallet/i)).toBeInTheDocument();
   });
 });

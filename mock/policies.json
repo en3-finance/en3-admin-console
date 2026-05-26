@@ -1,9 +1,9 @@
 [
   {
     "id": "policy_001",
-    "organizationId": "org_sandbox_001",
-    "name": "High value stablecoin approval",
-    "description": "Require operations approval for large stablecoin transfers in the sandbox console.",
+    "organizationId": "org_sandbank_001",
+    "name": "SandBank high value stablecoin approval",
+    "description": "Require operations approval for large stablecoin transfers in the SandBank sandbox console.",
     "status": "active",
     "scope": "outbound stablecoin transfer",
     "mockOnly": true,
@@ -18,7 +18,7 @@
   },
   {
     "id": "policy_002",
-    "organizationId": "org_sandbox_001",
+    "organizationId": "org_sandbank_001",
     "name": "Frozen wallet transfer block",
     "description": "Show how a frozen wallet state would appear in a reference control workflow.",
     "status": "active",
@@ -34,7 +34,7 @@
   },
   {
     "id": "policy_003",
-    "organizationId": "org_sandbox_002",
+    "organizationId": "org_sandbank_002",
     "name": "Risk signal manual review",
     "description": "Route a mock address-risk signal to manual review without vendor integration.",
     "status": "draft",

@@ -1,21 +1,22 @@
 import { AlertCircle, CheckCircle2, Clock3, Layers3 } from 'lucide-react';
-import { datasets, moduleDefinitions, treasuryWallets } from '../data/mockData';
+import { datasets, moduleDefinitions, operatingWallets } from '../data/mockData';
 import { formatAmount } from '../data/formatters';
 import { StatusBadge } from '../components/StatusBadge';
 
 export function Dashboard() {
   const pendingApprovals = datasets.approvals.filter((approval) => approval.status === 'pending').length;
   const riskReviews = datasets.riskReviews.filter((review) => review.status !== 'resolved').length;
-  const treasuryBalance = treasuryWallets
+  const operatingBalance = operatingWallets
     .filter((wallet) => wallet.asset === 'USDC')
     .reduce((total, wallet) => total + Number(wallet.balance), 0);
+  const openReconciliation = datasets.reconciliation.filter((item) => item.status === 'open').length;
 
   return (
     <section className="view-stack" aria-label="Dashboard summary">
       <div className="reference-banner">
         <div>
-          <p className="eyebrow">Mock operational posture</p>
-          <h3>Control-plane demo for institutional Wallet-as-a-Service operations</h3>
+          <p className="eyebrow">SandBank mock operational posture</p>
+          <h3>Operations and control-plane demo for sandbox Wallet-as-a-Service workflows</h3>
         </div>
         <StatusBadge value="sandbox_active" label="Public reference" />
       </div>
@@ -25,7 +26,7 @@ export function Dashboard() {
           <Layers3 aria-hidden="true" />
           <span>Organizations</span>
           <strong>{datasets.organizations.length}</strong>
-          <p>Reference tenants across bank, fintech, and payment-provider profiles.</p>
+          <p>Synthetic SandBank tenants across bank, remittance, and merchant sandbox profiles.</p>
         </article>
         <article className="metric">
           <CheckCircle2 aria-hidden="true" />
@@ -41,9 +42,9 @@ export function Dashboard() {
         </article>
         <article className="metric">
           <AlertCircle aria-hidden="true" />
-          <span>Open risk reviews</span>
-          <strong>{riskReviews}</strong>
-          <p>Mock KYT, sanctions, and address-risk style signals.</p>
+          <span>Open reviews</span>
+          <strong>{riskReviews + openReconciliation}</strong>
+          <p>Mock risk reviews plus synthetic reconciliation exceptions.</p>
         </article>
       </div>
 
@@ -69,15 +70,15 @@ export function Dashboard() {
         <article className="panel">
           <div className="panel-heading">
             <div>
-              <p className="eyebrow">Treasury snapshot</p>
-              <h3>System wallet reference balance</h3>
+              <p className="eyebrow">Operating snapshot</p>
+              <h3>Display-only system balance</h3>
             </div>
             <StatusBadge value="active" />
           </div>
-          <p className="hero-number">{formatAmount(String(treasuryBalance), 'USDC')}</p>
+          <p className="hero-number">{formatAmount(String(operatingBalance), 'USDC')}</p>
           <p className="muted-copy">
             Display-only mock balance from local fixtures. The public console does not sweep,
-            reconcile, settle, sign, or execute treasury transactions.
+            settle, sign, execute transactions, or connect to a ledger.
           </p>
         </article>
       </div>

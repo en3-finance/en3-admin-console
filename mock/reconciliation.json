@@ -1,0 +1,38 @@
+[
+  {
+    "id": "recon_001",
+    "organizationId": "org_sandbank_001",
+    "statementDate": "2026-05-25",
+    "asset": "USDC",
+    "expectedBalance": "250000.00",
+    "observedBalance": "250000.00",
+    "variance": "0.00",
+    "status": "resolved",
+    "owner": "Operations",
+    "summary": "Synthetic daily balance check completed with no variance."
+  },
+  {
+    "id": "recon_002",
+    "organizationId": "org_sandbank_002",
+    "statementDate": "2026-05-25",
+    "asset": "USDT",
+    "expectedBalance": "87000.00",
+    "observedBalance": "86980.00",
+    "variance": "20.00",
+    "status": "open",
+    "owner": "Compliance Review",
+    "summary": "Synthetic exception opened for operator review; no ledger or payment rail is connected."
+  },
+  {
+    "id": "recon_003",
+    "organizationId": "org_sandbank_003",
+    "statementDate": "2026-05-24",
+    "asset": "USDC",
+    "expectedBalance": "7400.25",
+    "observedBalance": "7400.25",
+    "variance": "0.00",
+    "status": "resolved",
+    "owner": "Read-only Audit",
+    "summary": "Synthetic historical review retained for demo timeline context."
+  }
+]

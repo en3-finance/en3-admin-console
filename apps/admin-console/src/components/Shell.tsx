@@ -6,7 +6,7 @@ import {
   Gauge,
   History,
   KeyRound,
-  Landmark,
+  Scale,
   LucideIcon,
   Radar,
   ShieldCheck,
@@ -23,7 +23,7 @@ const icons: Record<ModuleId, LucideIcon> = {
   users: Users,
   roles: KeyRound,
   wallets: WalletCards,
-  treasury: Landmark,
+  reconciliation: Scale,
   policies: ShieldCheck,
   approvals: ClipboardCheck,
   simulation: Activity,
@@ -41,6 +41,8 @@ interface ShellProps {
 
 export function Shell({ modules, activeModule, onSelectModule, children }: ShellProps) {
   const active = modules.find((module) => module.id === activeModule) ?? modules[0];
+  const apiBaseUrl = import.meta.env.EN3_API_BASE_URL as string | undefined;
+  const modeLabel = apiBaseUrl ? 'Sandbox API configured' : 'Mock mode';
 
   return (
     <div className="app-shell">
@@ -50,8 +52,8 @@ export function Shell({ modules, activeModule, onSelectModule, children }: Shell
             E3
           </div>
           <div>
-            <p className="eyebrow">En3 reference</p>
-            <h1>Wallet Control Plane</h1>
+            <p className="eyebrow">SandBank demo</p>
+            <h1>Operations Control Plane</h1>
           </div>
         </div>
 
@@ -74,7 +76,10 @@ export function Shell({ modules, activeModule, onSelectModule, children }: Shell
 
         <div className="boundary-note">
           <BadgeCheck aria-hidden="true" size={18} />
-          <span>Mock data only. No production signing, policy enforcement, ledger, risk, or webhook delivery.</span>
+          <span>
+            Public boundary: synthetic data only. No production auth, signing, policy internals, ledger,
+            external risk calls, or webhook delivery.
+          </span>
         </div>
       </aside>
 
@@ -85,7 +90,7 @@ export function Shell({ modules, activeModule, onSelectModule, children }: Shell
             <h2>{active.label}</h2>
             <p>{active.description}</p>
           </div>
-          <div className="mode-pill">Sandbox/reference</div>
+          <div className="mode-pill">{modeLabel}</div>
         </header>
         {children}
       </main>

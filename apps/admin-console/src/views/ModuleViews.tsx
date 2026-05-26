@@ -8,10 +8,20 @@ import {
   findSourceWallet,
   getOrganizationName,
   getRoleName,
-  treasuryWallets
+  operatingWallets
 } from '../data/mockData';
 import { formatAmount, formatDateTime, humanize } from '../data/formatters';
-import type { Approval, ApprovalDecision, Policy, RiskReview, Role, User, Wallet, Webhook } from '../data/types';
+import type {
+  Approval,
+  ApprovalDecision,
+  Policy,
+  ReconciliationItem,
+  RiskReview,
+  Role,
+  User,
+  Wallet,
+  Webhook
+} from '../data/types';
 import { PolicyDetail } from './PolicyDetail';
 import { ApprovalDetail } from './ApprovalDetail';
 
@@ -99,6 +109,7 @@ export function WalletRegistryView() {
           { key: 'owner', header: 'Owner type', render: (row) => humanize(row.ownerType) },
           { key: 'balance', header: 'Balance', render: (row) => formatAmount(row.balance, row.asset) },
           { key: 'network', header: 'Network', render: (row) => row.network },
+          { key: 'control', header: 'Control mode', render: (row) => row.controlMode },
           { key: 'status', header: 'Status', render: (row) => <StatusBadge value={row.status} /> }
         ]}
       />
@@ -106,29 +117,54 @@ export function WalletRegistryView() {
   );
 }
 
-export function TreasuryWalletsView() {
+export function ReconciliationView() {
   return (
-    <section className="view-stack" aria-label="Treasury and system wallets">
+    <section className="view-stack" aria-label="Reconciliation">
       <div className="reference-banner">
         <div>
-          <p className="eyebrow">Treasury reference</p>
-          <h3>Display-only operational wallets</h3>
+          <p className="eyebrow">Synthetic reconciliation</p>
+          <h3>Balance checks and exception states without ledger integration</h3>
         </div>
-        <StatusBadge value="mock_reference" label="No sweeping or reconciliation" />
+        <StatusBadge value="open" label="Mock review queue" />
       </div>
-      <DataTable<Wallet>
-        rows={treasuryWallets}
+      <DataTable<ReconciliationItem>
+        rows={datasets.reconciliation}
         getRowKey={(row) => row.id}
-        emptyTitle="No treasury wallets"
-        emptyMessage="Treasury, settlement, and system wallets would appear here in mock form."
+        emptyTitle="No reconciliation items"
+        emptyMessage="Synthetic reconciliation exceptions would appear here."
         columns={[
-          { key: 'label', header: 'Wallet', render: (row) => <strong>{row.label}</strong> },
-          { key: 'type', header: 'Type', render: (row) => humanize(row.ownerType) },
-          { key: 'balance', header: 'Mock balance', render: (row) => formatAmount(row.balance, row.asset) },
-          { key: 'custody', header: 'Reference custody mode', render: (row) => row.custodyMode },
-          { key: 'status', header: 'Status', render: (row) => <StatusBadge value={row.status} /> }
+          { key: 'id', header: 'Item', render: (row) => <strong>{row.id}</strong> },
+          { key: 'org', header: 'Organization', render: (row) => getOrganizationName(row.organizationId) },
+          { key: 'date', header: 'Statement date', render: (row) => row.statementDate },
+          { key: 'expected', header: 'Expected', render: (row) => formatAmount(row.expectedBalance, row.asset) },
+          { key: 'observed', header: 'Observed', render: (row) => formatAmount(row.observedBalance, row.asset) },
+          { key: 'variance', header: 'Variance', render: (row) => formatAmount(row.variance, row.asset) },
+          { key: 'status', header: 'Status', render: (row) => <StatusBadge value={row.status} /> },
+          { key: 'summary', header: 'Summary', render: (row) => row.summary }
         ]}
       />
+      <article className="panel">
+        <div className="panel-heading">
+          <div>
+            <p className="eyebrow">Operating wallet context</p>
+            <h3>Display-only balances used by the synthetic review</h3>
+          </div>
+          <span className="count-pill">{operatingWallets.length} wallets</span>
+        </div>
+        <DataTable<Wallet>
+          rows={operatingWallets}
+          getRowKey={(row) => row.id}
+          emptyTitle="No operating wallets"
+          emptyMessage="Operating, settlement, and system wallets would appear here in mock form."
+          columns={[
+            { key: 'label', header: 'Wallet', render: (row) => <strong>{row.label}</strong> },
+            { key: 'type', header: 'Type', render: (row) => humanize(row.ownerType) },
+            { key: 'balance', header: 'Mock balance', render: (row) => formatAmount(row.balance, row.asset) },
+            { key: 'control', header: 'Control mode', render: (row) => row.controlMode },
+            { key: 'status', header: 'Status', render: (row) => <StatusBadge value={row.status} /> }
+          ]}
+        />
+      </article>
     </section>
   );
 }

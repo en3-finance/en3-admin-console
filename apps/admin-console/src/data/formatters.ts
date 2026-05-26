@@ -32,11 +32,15 @@ export function humanize(value: string): string {
 export function statusTone(value: string): 'good' | 'warning' | 'danger' | 'neutral' | 'info' {
   const normalized = value.toLowerCase();
 
-  if (['active', 'sandbox_active', 'success', 'clear', 'approved', 'resolved'].includes(normalized)) {
+  if (['active', 'sandbox_active', 'success', 'clear', 'approved', 'resolved', 'mock_current'].includes(normalized)) {
     return 'good';
   }
 
-  if (['pending', 'review', 'review_required', 'retrying', 'draft', 'invited', 'sandbox_review'].includes(normalized)) {
+  if (
+    ['pending', 'review', 'review_required', 'retrying', 'draft', 'invited', 'sandbox_review', 'open', 'mock_due'].includes(
+      normalized
+    )
+  ) {
     return 'warning';
   }
 
@@ -44,7 +48,7 @@ export function statusTone(value: string): 'good' | 'warning' | 'danger' | 'neut
     return 'danger';
   }
 
-  if (['paused', 'disabled', 'sandbox_paused', 'none'].includes(normalized)) {
+  if (['paused', 'disabled', 'sandbox_paused', 'none', 'mock_not_configured'].includes(normalized)) {
     return 'neutral';
   }
 

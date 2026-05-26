@@ -1,4 +1,5 @@
 import type { MockDatasets } from './types';
+import { canonicalEvents, canonicalStatuses, forbiddenPublicEvents } from './canonical';
 
 export interface ValidationIssue {
   dataset: string;
@@ -54,6 +55,9 @@ function validateArray(dataset: string, records: Array<{ id?: string }>, issues:
 
 export function validateMockData(data: MockDatasets): ValidationIssue[] {
   const issues: ValidationIssue[] = [];
+  const validStatuses = new Set<string>(canonicalStatuses);
+  const validEvents = new Set<string>(canonicalEvents);
+  const forbiddenEvents = new Set<string>(forbiddenPublicEvents);
 
   validateArray('organizations', data.organizations, issues);
   validateArray('users', data.users, issues);
@@ -64,6 +68,7 @@ export function validateMockData(data: MockDatasets): ValidationIssue[] {
   validateArray('riskReviews', data.riskReviews, issues);
   validateArray('auditEvents', data.auditEvents, issues);
   validateArray('webhooks', data.webhooks, issues);
+  validateArray('reconciliation', data.reconciliation, issues);
 
   data.policies.forEach((policy) => {
     if (policy.mockOnly !== true) {
@@ -81,6 +86,47 @@ export function validateMockData(data: MockDatasets): ValidationIssue[] {
     if (!webhook.target.includes('example.invalid') && !webhook.target.toLowerCase().includes('redacted')) {
       issues.push({ dataset: 'webhooks', message: `${webhook.id} target must be mock or redacted.` });
     }
+  });
+
+  const statusRecords: Array<[string, string, string]> = [
+    ...data.organizations.map((record) => ['organizations', record.id, record.status] as [string, string, string]),
+    ...data.users.map((record) => ['users', record.id, record.status] as [string, string, string]),
+    ...data.wallets.map((record) => ['wallets', record.id, record.status] as [string, string, string]),
+    ...data.policies.map((record) => ['policies', record.id, record.status] as [string, string, string]),
+    ...data.approvals.map((record) => ['approvals', record.id, record.status] as [string, string, string]),
+    ...data.riskReviews.map((record) => ['riskReviews', record.id, record.status] as [string, string, string]),
+    ...data.webhooks.map((record) => ['webhooks', record.id, record.status] as [string, string, string]),
+    ...data.webhooks.map((record) => ['webhooks', record.id, record.lastDeliveryStatus] as [string, string, string]),
+    ...data.webhooks.map((record) => ['webhooks', record.id, record.secretStatus] as [string, string, string]),
+    ...data.reconciliation.map((record) => ['reconciliation', record.id, record.status] as [string, string, string])
+  ];
+
+  statusRecords.forEach(([dataset, id, status]) => {
+    if (!validStatuses.has(status)) {
+      issues.push({ dataset, message: `${id} uses non-canonical status ${status}.` });
+    }
+  });
+
+  data.auditEvents.forEach((event) => {
+    if (forbiddenEvents.has(event.action)) {
+      issues.push({ dataset: 'auditEvents', message: `${event.id} uses forbidden public event ${event.action}.` });
+    }
+
+    if (!validEvents.has(event.action)) {
+      issues.push({ dataset: 'auditEvents', message: `${event.id} uses non-canonical event ${event.action}.` });
+    }
+  });
+
+  data.webhooks.forEach((webhook) => {
+    webhook.eventTypes.forEach((eventType) => {
+      if (forbiddenEvents.has(eventType)) {
+        issues.push({ dataset: 'webhooks', message: `${webhook.id} uses forbidden public event ${eventType}.` });
+      }
+
+      if (!validEvents.has(eventType)) {
+        issues.push({ dataset: 'webhooks', message: `${webhook.id} uses non-canonical event ${eventType}.` });
+      }
+    });
   });
 
   inspectValue('all', data, issues);

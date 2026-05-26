@@ -1,7 +1,7 @@
 [
   {
     "id": "approval_001",
-    "organizationId": "org_sandbox_001",
+    "organizationId": "org_sandbank_001",
     "transactionId": "txn_001",
     "policyId": "policy_001",
     "riskReviewId": "risk_001",
@@ -23,7 +23,7 @@
   },
   {
     "id": "approval_002",
-    "organizationId": "org_sandbox_002",
+    "organizationId": "org_sandbank_002",
     "transactionId": "txn_002",
     "policyId": "policy_003",
     "riskReviewId": "risk_002",
@@ -45,7 +45,7 @@
   },
   {
     "id": "approval_003",
-    "organizationId": "org_sandbox_001",
+    "organizationId": "org_sandbank_001",
     "transactionId": "txn_003",
     "policyId": "policy_002",
     "riskReviewId": "risk_003",

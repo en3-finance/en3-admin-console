@@ -26,12 +26,12 @@
     ]
   },
   {
-    "id": "role_treasury_operator",
-    "name": "Treasury Operator",
-    "description": "Can inspect treasury and system wallet posture in mock form.",
-    "scope": "treasury",
+    "id": "role_reconciliation_operator",
+    "name": "Reconciliation Operator",
+    "description": "Can inspect synthetic balance reviews and wallet posture in mock form.",
+    "scope": "reconciliation",
     "permissions": [
-      "treasury.read",
+      "reconciliation.read",
       "wallets.read",
       "simulation.run"
     ]

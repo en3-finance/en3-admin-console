@@ -10,9 +10,9 @@ import {
   ApprovalsView,
   OrganizationsView,
   PoliciesView,
+  ReconciliationView,
   RiskReviewView,
   RolesView,
-  TreasuryWalletsView,
   UsersView,
   WalletRegistryView,
   WebhooksView
@@ -49,8 +49,8 @@ export function App() {
         return <RolesView />;
       case 'wallets':
         return <WalletRegistryView />;
-      case 'treasury':
-        return <TreasuryWalletsView />;
+      case 'reconciliation':
+        return <ReconciliationView />;
       case 'policies':
         return <PoliciesView selectedPolicyId={selectedPolicyId} onSelectPolicy={setSelectedPolicyId} />;
       case 'approvals':

@@ -1,7 +1,7 @@
 [
   {
     "id": "admin_001",
-    "organizationId": "org_sandbox_001",
+    "organizationId": "org_sandbank_001",
     "name": "Maya Operations",
     "email": "maya.operations@example.invalid",
     "roleId": "role_operations_admin",
@@ -10,7 +10,7 @@
   },
   {
     "id": "user_002",
-    "organizationId": "org_sandbox_001",
+    "organizationId": "org_sandbank_001",
     "name": "Omar Compliance",
     "email": "omar.compliance@example.invalid",
     "roleId": "role_compliance_reviewer",
@@ -19,16 +19,16 @@
   },
   {
     "id": "user_003",
-    "organizationId": "org_sandbox_002",
-    "name": "Leila Treasury",
-    "email": "leila.treasury@example.invalid",
-    "roleId": "role_treasury_operator",
+    "organizationId": "org_sandbank_002",
+    "name": "Leila Operations",
+    "email": "leila.operations@example.invalid",
+    "roleId": "role_reconciliation_operator",
     "status": "invited",
     "lastActiveAt": null
   },
   {
     "id": "user_004",
-    "organizationId": "org_sandbox_003",
+    "organizationId": "org_sandbank_003",
     "name": "Samir Auditor",
     "email": "samir.auditor@example.invalid",
     "roleId": "role_readonly_auditor",

@@ -4,7 +4,7 @@ export type ModuleId =
   | 'users'
   | 'roles'
   | 'wallets'
-  | 'treasury'
+  | 'reconciliation'
   | 'policies'
   | 'approvals'
   | 'simulation'
@@ -47,7 +47,7 @@ export interface Role {
   permissions: string[];
 }
 
-export type WalletOwnerType = 'user' | 'treasury' | 'settlement' | 'system';
+export type WalletOwnerType = 'user' | 'operating' | 'settlement' | 'system';
 
 export interface Wallet {
   id: string;
@@ -59,7 +59,7 @@ export interface Wallet {
   network: string;
   balance: string;
   status: string;
-  custodyMode: string;
+  controlMode: string;
 }
 
 export interface PolicyRule {
@@ -141,6 +141,19 @@ export interface Webhook {
   secretStatus: string;
 }
 
+export interface ReconciliationItem {
+  id: string;
+  organizationId: string;
+  statementDate: string;
+  asset: string;
+  expectedBalance: string;
+  observedBalance: string;
+  variance: string;
+  status: string;
+  owner: string;
+  summary: string;
+}
+
 export interface MockDatasets {
   organizations: Organization[];
   users: User[];
@@ -151,6 +164,7 @@ export interface MockDatasets {
   riskReviews: RiskReview[];
   auditEvents: AuditEvent[];
   webhooks: Webhook[];
+  reconciliation: ReconciliationItem[];
 }
 
 export interface ApprovalDecision {

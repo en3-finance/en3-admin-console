@@ -1,7 +1,7 @@
 [
   {
     "id": "risk_001",
-    "organizationId": "org_sandbox_001",
+    "organizationId": "org_sandbank_001",
     "transactionId": "txn_001",
     "status": "review_required",
     "severity": "medium",
@@ -11,7 +11,7 @@
   },
   {
     "id": "risk_002",
-    "organizationId": "org_sandbox_002",
+    "organizationId": "org_sandbank_002",
     "transactionId": "txn_002",
     "status": "escalated",
     "severity": "high",
@@ -21,7 +21,7 @@
   },
   {
     "id": "risk_003",
-    "organizationId": "org_sandbox_001",
+    "organizationId": "org_sandbank_001",
     "transactionId": "txn_003",
     "status": "resolved",
     "severity": "low",

@@ -1,29 +1,29 @@
 [
   {
-    "id": "org_sandbox_001",
-    "name": "Reference Bank",
+    "id": "org_sandbank_001",
+    "name": "SandBank Gulf Operations",
     "status": "sandbox_active",
     "market": "GCC reference market",
     "productType": "Bank-hosted wallet program",
-    "operatingMode": "Hybrid SaaS with bank-hosted key share",
+    "operatingMode": "Sandbox API review mode",
     "createdAt": "2026-05-20T09:00:00Z"
   },
   {
-    "id": "org_sandbox_002",
-    "name": "Reference Fintech",
+    "id": "org_sandbank_002",
+    "name": "SandBank Remittance Lab",
     "status": "sandbox_review",
     "market": "Emerging-market payments",
     "productType": "Stablecoin remittance wallet",
-    "operatingMode": "SaaS reference deployment",
+    "operatingMode": "Mock payout review mode",
     "createdAt": "2026-05-21T10:30:00Z"
   },
   {
-    "id": "org_sandbox_003",
-    "name": "Reference Payment Provider",
+    "id": "org_sandbank_003",
+    "name": "SandBank Merchant Sandbox",
     "status": "sandbox_paused",
     "market": "Merchant settlement",
-    "productType": "Treasury operations wallet",
-    "operatingMode": "BYO custody/HSM reference",
+    "productType": "Merchant settlement wallet",
+    "operatingMode": "Read-only sandbox review",
     "createdAt": "2026-05-22T14:20:00Z"
   }
 ]

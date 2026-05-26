@@ -7,6 +7,7 @@ import approvalsJson from '../../../../mock/approvals.json';
 import riskReviewsJson from '../../../../mock/risk-reviews.json';
 import auditEventsJson from '../../../../mock/audit-events.json';
 import webhooksJson from '../../../../mock/webhooks.json';
+import reconciliationJson from '../../../../mock/reconciliation.json';
 import type {
   Approval,
   AuditEvent,
@@ -14,6 +15,7 @@ import type {
   ModuleDefinition,
   Organization,
   Policy,
+  ReconciliationItem,
   RiskReview,
   Role,
   User,
@@ -26,7 +28,7 @@ export const moduleDefinitions: ModuleDefinition[] = [
     id: 'dashboard',
     label: 'Dashboard',
     shortLabel: 'Dashboard',
-    description: 'Mock posture across tenants, wallets, approvals, risk, audit, and integrations.'
+    description: 'SandBank mock posture across tenants, wallets, approvals, risk, audit, and integrations.'
   },
   {
     id: 'organizations',
@@ -50,13 +52,13 @@ export const moduleDefinitions: ModuleDefinition[] = [
     id: 'wallets',
     label: 'Wallet Registry',
     shortLabel: 'Wallets',
-    description: 'User, settlement, treasury, and system wallet records.'
+    description: 'User, settlement, operating, and system wallet records.'
   },
   {
-    id: 'treasury',
-    label: 'Treasury / System Wallets',
-    shortLabel: 'Treasury',
-    description: 'Operational wallet posture in mock form.'
+    id: 'reconciliation',
+    label: 'Reconciliation',
+    shortLabel: 'Recon',
+    description: 'Synthetic balance review and exception states with no ledger integration.'
   },
   {
     id: 'policies',
@@ -105,10 +107,11 @@ export const datasets: MockDatasets = {
   approvals: approvalsJson as Approval[],
   riskReviews: riskReviewsJson as RiskReview[],
   auditEvents: auditEventsJson as AuditEvent[],
-  webhooks: webhooksJson as Webhook[]
+  webhooks: webhooksJson as Webhook[],
+  reconciliation: reconciliationJson as ReconciliationItem[]
 };
 
-export const treasuryWallets = datasets.wallets.filter((wallet) =>
+export const operatingWallets = datasets.wallets.filter((wallet) =>
   ['treasury', 'system', 'settlement'].includes(wallet.ownerType)
 );
 
